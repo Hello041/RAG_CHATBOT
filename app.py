@@ -16,8 +16,8 @@ from langchain_core.messages import trim_messages
 from operator import itemgetter
 
 # 환경 변수 로드
-load_dotenv("../data/.env")
-api_key = os.getenv("OPENAI_API_KEY")
+load_dotenv()
+api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
 
 # PDF 처리 함수
 @st.cache_resource
